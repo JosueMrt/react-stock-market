@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Chart, Info, News, SearchBar } from "./components";
 import styles from "./App.module.css";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className={styles.container}>
-        <SearchBar />
-        <Chart />
-        <Info />
-        <News />
-      </div>
-    );
-  }
-}
+const App = () => {
+  const [ticker, setTicker] = useState("");
+  const handleSearch = (e) => {
+    setTicker(e.target.value);
+  };
+  return (
+    <div className={styles.container}>
+      <SearchBar handleSearch={handleSearch} />
+      <Chart ticker={ticker} />
+      <Info />
+      <News />
+    </div>
+  );
+};
 
 export default App;
 

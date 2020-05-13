@@ -1,4 +1,4 @@
-export const fetchDailyData = async (ticker = "spy") => {
+export const fetchDailyData = async (ticker = "vfiax") => {
   const response = await fetch(
     "https://sandbox.iexapis.com/stable/stock/" +
       ticker +
