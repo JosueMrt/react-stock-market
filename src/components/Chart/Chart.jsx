@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import styles from "./Chart.module.css";
 
-const Chart = () => {
+const Chart = ({ ticker }) => {
   const [dailyData, setDailyData] = useState([]);
   useEffect(() => {
     const fetch = async () => {
-      setDailyData(await fetchDailyData());
+      setDailyData(await fetchDailyData(ticker));
     };
     fetch();
-  }, []);
+  }, [ticker]);
   const lineChart = dailyData.length ? (
     <Line
       data={{

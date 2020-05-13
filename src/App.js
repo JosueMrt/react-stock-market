@@ -3,9 +3,9 @@ import { Chart, Info, News, SearchBar } from "./components";
 import styles from "./App.module.css";
 
 const App = () => {
-  const [ticker, setTicker] = useState("");
-  const handleSearch = (e) => {
-    setTicker(e.target.value);
+  const [ticker, setTicker] = useState("tsla");
+  const handleSearch = (ticker) => {
+    setTicker(ticker);
   };
   return (
     <div className={styles.container}>
@@ -18,5 +18,3 @@ const App = () => {
 };
 
 export default App;
-
-// Lift ticker state to App, then use ticker as an argument to the API call inside components
