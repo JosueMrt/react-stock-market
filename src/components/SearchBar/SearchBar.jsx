@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import styles from "./SearchBar.module.css";
 import { fetchTickerList } from "../../api";
+import styles from "./SearchBar.module.css";
 import { Autocomplete } from "@material-ui/lab";
 import { TextField, Button } from "@material-ui/core";
 
@@ -9,9 +9,9 @@ const SearchBar = ({ handleSearch }) => {
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
-    const fetch = async () => setStocks(await fetchTickerList());
-    fetch();
-  }, []);
+    const fetch = async () => setStocks(await fetchTickerList(inputValue));
+    inputValue.length > 0 && fetch();
+  }, [inputValue]);
 
   return (
     <div className={styles.container}>
@@ -20,9 +20,10 @@ const SearchBar = ({ handleSearch }) => {
         onInputChange={(event, newInputValue) => setInputValue(newInputValue)}
         id="search-bar"
         options={stocks}
+        freeSolo={true}
         style={{ width: 300 }}
         renderInput={(params) => (
-          <TextField {...params} label="Controllable" variant="outlined" />
+          <TextField {...params} label="Pick a stock" variant="outlined" />
         )}
       />
       <Button

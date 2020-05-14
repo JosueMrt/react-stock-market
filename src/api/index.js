@@ -9,9 +9,9 @@ export const fetchDailyData = async (ticker, time) => {
   });
 };
 
-export const fetchTickerList = async () => {
+export const fetchTickerList = async (input) => {
   const response = await fetch(
-    "https://sandbox.iexapis.com/stable/ref-data/symbols?token=Tsk_536fd841bd3446e09e6a7895835fa6c6"
+    `https://ticker-2e1ica8b9.now.sh/keyword/${input}`
   );
   const data = await response.json();
   return data.map(({symbol}) => symbol)
