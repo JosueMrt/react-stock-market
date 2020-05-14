@@ -3,7 +3,7 @@ import { Chart, Info, News, SearchBar } from "./components";
 import styles from "./App.module.css";
 
 const App = () => {
-  const [ticker, setTicker] = useState("tsla");
+  const [ticker, setTicker] = useState("twtr");
   const handleSearch = (ticker) => {
     setTicker(ticker);
   };

@@ -1,29 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./SearchBar.module.css";
+import { Autocomplete } from "@material-ui/lab";
+import { TextField, Button } from "@material-ui/core";
+import { useState } from "react";
 
 const SearchBar = ({ handleSearch }) => {
-  const [formValue, setFormValue] = useState("");
+  const stocks = ["twtr", "tsla"];
+  const [inputValue, setInputValue] = useState("");
 
-  const handleChange = (e) => {
-    e.target.value.length <= 5
-      ? setFormValue(e.target.value)
-      : setFormValue(formValue);
-  };
   return (
     <div className={styles.container}>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSearch(formValue);
-        }}
+      <Autocomplete
+        inputValue={inputValue}
+        onInputChange={(event, newInputValue) => setInputValue(newInputValue)}
+        id="search-bar"
+        options={stocks}
+        style={{ width: 300 }}
+        renderInput={(params) => (
+          <TextField {...params} label="Controllable" variant="outlined" />
+        )}
+      />
+      <Button
+        onClick={() => handleSearch(inputValue)}
+        variant="contained"
+        color="primary"
       >
-        <input
-          type="text"
-          value={formValue}
-          onChange={(e) => handleChange(e)}
-        />
-        <input type="submit" value="Submit" />
-      </form>
+        Submit
+      </Button>
     </div>
   );
 };

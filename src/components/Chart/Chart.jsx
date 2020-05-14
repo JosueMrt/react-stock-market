@@ -24,10 +24,10 @@ const Chart = ({ ticker }) => {
           {
             data: dailyData.map(({ close }) => close),
             label: "Close Price",
-            borderColor: "#333ff",
             backgroundColor: "#00c805",
             fill: true,
             lineTension: 0.1,
+            pointRadius: 0,
           },
         ],
       }}
