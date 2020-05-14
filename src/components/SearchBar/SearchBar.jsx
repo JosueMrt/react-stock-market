@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./SearchBar.module.css";
+import { fetchTickerList } from "../../api";
 import { Autocomplete } from "@material-ui/lab";
 import { TextField, Button } from "@material-ui/core";
-import { useState } from "react";
 
 const SearchBar = ({ handleSearch }) => {
-  const stocks = ["twtr", "tsla"];
+  const [stocks, setStocks] = useState([]);
   const [inputValue, setInputValue] = useState("");
+
+  useEffect(() => {
+    const fetch = async () => setStocks(await fetchTickerList());
+    fetch();
+  }, []);
 
   return (
     <div className={styles.container}>
