@@ -18,3 +18,7 @@ const App = () => {
 };
 
 export default App;
+
+// Search bar validation
+// Add time window selector
+// Add infos & news

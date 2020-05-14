@@ -5,13 +5,17 @@ import { Line } from "react-chartjs-2";
 import styles from "./Chart.module.css";
 
 const Chart = ({ ticker }) => {
+  const times = ["1m", "6m", "1y", "5y"];
   const [dailyData, setDailyData] = useState([]);
+  const [timePeriod, setTimePeriod] = useState(times[0]);
+
   useEffect(() => {
     const fetch = async () => {
-      setDailyData(await fetchDailyData(ticker));
+      setDailyData(await fetchDailyData(ticker, timePeriod));
     };
     fetch();
-  }, [ticker]);
+  }, [ticker, timePeriod]);
+
   const lineChart = dailyData.length ? (
     <Line
       data={{
@@ -30,7 +34,18 @@ const Chart = ({ ticker }) => {
     />
   ) : null;
 
-  return <div className={styles.container}>{lineChart}</div>;
+  return (
+    <div className={styles.container}>
+      <div>
+        {times.map((val) => (
+          <button onClick={() => setTimePeriod(val)} key={val}>
+            {val}
+          </button>
+        ))}
+      </div>
+      {lineChart}
+    </div>
+  );
 };
 
 export default Chart;
