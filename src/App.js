@@ -11,7 +11,7 @@ const App = () => {
     <div className={styles.container}>
       <SearchBar handleSearch={handleSearch} />
       <Chart ticker={ticker} />
-      <Info />
+      <Info ticker={ticker}/>
       <News />
     </div>
   );

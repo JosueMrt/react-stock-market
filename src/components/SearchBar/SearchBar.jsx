@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { fetchTickerList } from "../../api";
 import styles from "./SearchBar.module.css";
 import { Autocomplete } from "@material-ui/lab";
 import { TextField, Button } from "@material-ui/core";
+import { fetchTickerList } from "../../api";
 
 const SearchBar = ({ handleSearch }) => {
   const [stocks, setStocks] = useState([]);
@@ -17,7 +17,9 @@ const SearchBar = ({ handleSearch }) => {
     <div className={styles.container}>
       <Autocomplete
         inputValue={inputValue}
-        onInputChange={(event, newInputValue) => setInputValue(newInputValue)}
+        onInputChange={(event, newInputValue) =>
+          setInputValue(newInputValue.toUpperCase())
+        }
         id="search-bar"
         options={stocks}
         freeSolo={true}
