@@ -18,6 +18,7 @@ const Chart = ({ ticker }) => {
 
   const lineChart = dailyData.length ? (
     <Line
+      className={styles.chart}
       data={{
         labels: dailyData.map(({ date }) => date),
         datasets: [
@@ -31,14 +32,23 @@ const Chart = ({ ticker }) => {
           },
         ],
       }}
+      options={{
+         scales: { xAxes: [{ display: false }] },
+        legend: { display: false },
+        maintainAspectRatio: false,
+      }}
     />
   ) : null;
 
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.timePicker}>
         {times.map((val) => (
-          <button onClick={() => setTimePeriod(val)} key={val}>
+          <button
+            onClick={() => setTimePeriod(val)}
+            className={styles[val]}
+            key={val}
+          >
             {val}
           </button>
         ))}

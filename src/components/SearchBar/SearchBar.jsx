@@ -1,40 +1,49 @@
 import React, { useState, useEffect } from "react";
 import styles from "./SearchBar.module.css";
-import { Autocomplete } from "@material-ui/lab";
-import { TextField, Button } from "@material-ui/core";
-import { fetchTickerList } from "../../api";
+import { TickerSymbols } from "./assets/TickerSymbols";
 
 const SearchBar = ({ handleSearch }) => {
   const [stocks, setStocks] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
-    const fetch = async () => setStocks(await fetchTickerList(inputValue));
-    inputValue.length > 0 && fetch();
+    const regex = new RegExp(`^${inputValue}`, "i");
+    setStocks(
+      TickerSymbols.filter((val) => regex.test(val.symbol)).slice(0, 11)
+    );
+    console.log(inputValue);
   }, [inputValue]);
 
   return (
     <div className={styles.container}>
-      <Autocomplete
-        inputValue={inputValue}
-        onInputChange={(event, newInputValue) =>
-          setInputValue(newInputValue.toUpperCase())
+      <input
+      placeholder="PICK A SYMBOL..."
+        className={styles.input}
+        list="stock-picker"
+        type="text"
+        value={inputValue}
+        onChange={(e) =>
+          e.target.value.length <= 5
+            ? setInputValue(e.target.value.toUpperCase())
+            : setInputValue(inputValue)
         }
-        id="search-bar"
-        options={stocks}
-        freeSolo={true}
-        style={{ width: 300 }}
-        renderInput={(params) => (
-          <TextField {...params} label="Pick a stock" variant="outlined" />
-        )}
       />
-      <Button
-        onClick={() => handleSearch(inputValue)}
-        variant="contained"
-        color="primary"
+      <datalist id="stock-picker">
+        {inputValue.length &&
+          stocks.map((val) => (
+            <option
+              key={val.symbol}
+              value={val.symbol}
+              label={val.name}
+            ></option>
+          ))}
+      </datalist>
+      <button
+        className={styles.searchButton}
+        onClick={() => {handleSearch(inputValue); setInputValue("")}}
       >
-        Submit
-      </Button>
+        <i className="fas fa-search"></i>
+      </button>
     </div>
   );
 };

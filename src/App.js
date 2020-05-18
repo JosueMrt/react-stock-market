@@ -10,8 +10,8 @@ const App = () => {
   return (
     <div className={styles.container}>
       <SearchBar handleSearch={handleSearch} />
-      <Chart ticker={ticker} />
       <Info ticker={ticker}/>
+      <Chart ticker={ticker} />
       <News />
     </div>
   );

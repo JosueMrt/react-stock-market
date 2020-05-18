@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.input {
+  border: none;
+  font-size: 18px;
+  padding: 10px 0;
+  text-align: center;
+  background-color: #07122b;
+  color: #fff;
+  flex-grow: 10;
+}
+
+.searchButton {
+  color: #fff;
+  background-color: #020a22;
+  text-decoration: none;
+  border: none;
+  font-size: 24px;
+  margin: 0 10px;
+}

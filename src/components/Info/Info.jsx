@@ -17,10 +17,18 @@ const Info = ({ ticker }) => {
   if (companyInfo) {
     return (
       <div className={styles.container}>
-        <img src={logoUrl} alt={`Logo of ${companyInfo.companyName}`} />
-        {Object.keys(companyInfo).map((val) => (
-          <div id={val}>{companyInfo[val]}</div>
-        ))}
+        <div className={styles.text}>
+          {Object.keys(companyInfo).map((val) => (
+            <div className={styles[val]} key={val}>
+              {companyInfo[val]}
+            </div>
+          ))}
+        </div>
+        <img
+          className={styles.logo}
+          src={"https://storage.googleapis.com/iex/api/logos/AAPL.png"}
+          alt={`Logo of ${companyInfo.companyName}`}
+        />
       </div>
     );
   } else return null;
