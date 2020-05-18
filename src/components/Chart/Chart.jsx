@@ -16,34 +16,34 @@ const Chart = ({ ticker }) => {
     fetch();
   }, [ticker, timePeriod]);
 
-  const lineChart = dailyData.length ? (
-    <Line
-      className={styles.chart}
-      data={{
-        labels: dailyData.map(({ date }) => date),
-        datasets: [
-          {
-            data: dailyData.map(({ close }) => close),
-            label: "Close Price",
-            backgroundColor: "#00c805",
-            fill: true,
-            lineTension: 0.1,
-            pointRadius: 0,
-          },
-        ],
-      }}
-      options={{
-        scales: { xAxes: [{ display: false }] },
-        legend: { display: false },
-        maintainAspectRatio: false,
-      }}
-    />
-  ) : null;
+  const data = (canvas) => {
+    const ctx = canvas.getContext("2d");
+    const gradient = ctx.createLinearGradient(500, 0, 100, 0);
+    gradient.addColorStop(0, "#FA9917");
+    gradient.addColorStop(1, "#F36");
+    return {
+      labels: dailyData.map(({ date }) => date),
+      datasets: [
+        {
+          data: dailyData.map(({ close }) => close),
+          label: "Close Price",
+          pointRadius: 0,
+          lineTension: 0.1,
+          backgroundColor: gradient,
+        },
+      ],
+    };
+  };
+
+  const options = {
+    legend: { display: false },
+    scales: { xAxes: [{ display: false }] },
+  };
 
   return (
     <div className={styles.container}>
       <TimePicker setTimePeriod={setTimePeriod} />
-      {lineChart}
+      <Line data={data} options={options} />
     </div>
   );
 };
