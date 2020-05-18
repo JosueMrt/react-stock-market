@@ -2,6 +2,7 @@ import React from "react";
 import { fetchDailyData } from "../../api";
 import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
+import TimePicker from "./TimerPicker/TimePicker";
 import styles from "./Chart.module.css";
 
 const Chart = ({ ticker }) => {
@@ -33,7 +34,7 @@ const Chart = ({ ticker }) => {
         ],
       }}
       options={{
-         scales: { xAxes: [{ display: false }] },
+        scales: { xAxes: [{ display: false }] },
         legend: { display: false },
         maintainAspectRatio: false,
       }}
@@ -42,17 +43,7 @@ const Chart = ({ ticker }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.timePicker}>
-        {times.map((val) => (
-          <button
-            onClick={() => setTimePeriod(val)}
-            className={styles[val]}
-            key={val}
-          >
-            {val}
-          </button>
-        ))}
-      </div>
+      <TimePicker times={times} setTimePeriod={setTimePeriod} />
       {lineChart}
     </div>
   );
