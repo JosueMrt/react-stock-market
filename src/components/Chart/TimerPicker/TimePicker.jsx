@@ -1,13 +1,19 @@
-import React from "react";
-import styles from "./TimePicker.module.css"
+import React, { useState } from "react";
+import styles from "./TimePicker.module.css";
 
-const TimePicker = ({ times, setTimePeriod }) => {
+const TimePicker = ({ setTimePeriod }) => {
+  const times = ["1m", "6m", "1y", "5y"];
+  const [activeTime, setActiveTime] = useState(times[1]);
+
   return (
     <div className={styles.container}>
       {times.map((val) => (
         <button
-          onClick={() => setTimePeriod(val)}
-          className={styles[val]}
+          onClick={() => {
+            setTimePeriod(val);
+            setActiveTime(val);
+          }}
+          className={activeTime === val && styles.active}
           key={val}
         >
           {val}

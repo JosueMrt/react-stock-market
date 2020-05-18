@@ -11,10 +11,12 @@
   flex: 1;
   font-size: 14px;
   color: #9A99B5;
+  transition: all 0.5s ease-out;
 }
 
-.\36 m {
+.active {
   border-bottom: #fff 2px solid !important;
   font-weight: bold;
   color: #fff !important;
+  transition: all 0.5s ease-in;
 }

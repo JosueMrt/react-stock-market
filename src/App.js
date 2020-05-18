@@ -3,7 +3,7 @@ import { Chart, Info, News, SearchBar } from "./components";
 import styles from "./App.module.css";
 
 const App = () => {
-  const [ticker, setTicker] = useState("TWTR");
+  const [ticker, setTicker] = useState("TSLA");
   const handleSearch = (ticker) => {
     setTicker(ticker);
   };
@@ -18,7 +18,3 @@ const App = () => {
 };
 
 export default App;
-
-// Search bar validation
-// Add time window selector
-// Add infos & news

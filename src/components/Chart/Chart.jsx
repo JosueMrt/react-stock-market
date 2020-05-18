@@ -6,9 +6,8 @@ import TimePicker from "./TimerPicker/TimePicker";
 import styles from "./Chart.module.css";
 
 const Chart = ({ ticker }) => {
-  const times = ["1m", "6m", "1y", "5y"];
   const [dailyData, setDailyData] = useState([]);
-  const [timePeriod, setTimePeriod] = useState(times[0]);
+  const [timePeriod, setTimePeriod] = useState("6m");
 
   useEffect(() => {
     const fetch = async () => {
@@ -43,7 +42,7 @@ const Chart = ({ ticker }) => {
 
   return (
     <div className={styles.container}>
-      <TimePicker times={times} setTimePeriod={setTimePeriod} />
+      <TimePicker setTimePeriod={setTimePeriod} />
       {lineChart}
     </div>
   );
