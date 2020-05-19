@@ -32,3 +32,11 @@ export const fetchCurrentPrice = async (ticker) => {
   const data = await response.json();
   return data;
 };
+
+export const fetchNews = async (ticker) => {
+  const response = await fetch(
+    `https://cloud.iexapis.com/stable/stock/${ticker}/news/last/3?token=pk_bc14b78153d24d7d878689bf51c9360d`
+  );
+  const data = await response.json();
+  return data;
+};

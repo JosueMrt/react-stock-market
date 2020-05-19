@@ -8,7 +8,7 @@ const Price = ({ ticker }) => {
     const fetch = async () => {
       setCurrentPrice(await fetchCurrentPrice(ticker));
     };
-    fetch(ticker);
+    fetch();
   }, [ticker]);
   return (
     <div className={styles.container}>

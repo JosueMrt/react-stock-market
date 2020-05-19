@@ -1,6 +1,6 @@
 .container {
-  min-height: 35vh;
   width: 100%;
+  background-color: #07122B;
 }
 
 .chartWrapper {

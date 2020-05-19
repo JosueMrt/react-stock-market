@@ -13,7 +13,7 @@ const App = () => {
       <Info ticker={ticker} />
       <Chart ticker={ticker} />
       <Price ticker={ticker} />
-      <News />
+      <News ticker={ticker} />
     </div>
   );
 };

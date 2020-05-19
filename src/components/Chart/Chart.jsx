@@ -19,8 +19,8 @@ const Chart = ({ ticker }) => {
   const data = (canvas) => {
     const ctx = canvas.getContext("2d");
     const gradient = ctx.createLinearGradient(0, 0, 0, 180);
-    gradient.addColorStop(0, "#f36");
-    gradient.addColorStop(1, "rgba(255,51,102,0)");
+    gradient.addColorStop(0, "#41E2BA");
+    gradient.addColorStop(1, "rgba(65,225,186,0)");
     return {
       labels: dailyData.map(({ date }) => date),
       datasets: [
@@ -30,7 +30,7 @@ const Chart = ({ ticker }) => {
           pointRadius: 0,
           lineTension: 0.1,
           backgroundColor: gradient,
-          borderColor: "#f36",
+          borderColor: "#41E2BA",
         },
       ],
     };
