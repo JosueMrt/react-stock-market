@@ -13,7 +13,7 @@ const TimePicker = ({ setTimePeriod }) => {
             setTimePeriod(val);
             setActiveTime(val);
           }}
-          className={activeTime === val && styles.active}
+          className={activeTime === val ? styles.active : styles.default}
           key={val}
         >
           {val}

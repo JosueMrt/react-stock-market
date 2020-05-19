@@ -18,9 +18,9 @@ const Chart = ({ ticker }) => {
 
   const data = (canvas) => {
     const ctx = canvas.getContext("2d");
-    const gradient = ctx.createLinearGradient(500, 0, 100, 0);
-    gradient.addColorStop(0, "#FA9917");
-    gradient.addColorStop(1, "#F36");
+    const gradient = ctx.createLinearGradient(0, 0, 0, 180);
+    gradient.addColorStop(0, "#f36");
+    gradient.addColorStop(1, "rgba(255,51,102,0)");
     return {
       labels: dailyData.map(({ date }) => date),
       datasets: [
@@ -30,6 +30,7 @@ const Chart = ({ ticker }) => {
           pointRadius: 0,
           lineTension: 0.1,
           backgroundColor: gradient,
+          borderColor: "#f36",
         },
       ],
     };
@@ -43,7 +44,9 @@ const Chart = ({ ticker }) => {
   return (
     <div className={styles.container}>
       <TimePicker setTimePeriod={setTimePeriod} />
-      <Line data={data} options={options} />
+      <div className={styles.chartWrapper}>
+        <Line data={data} options={options} />
+      </div>
     </div>
   );
 };

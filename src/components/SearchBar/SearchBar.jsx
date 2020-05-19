@@ -11,7 +11,6 @@ const SearchBar = ({ handleSearch }) => {
     setStocks(
       TickerSymbols.filter((val) => regex.test(val.symbol)).slice(0, 11)
     );
-    console.log(inputValue);
   }, [inputValue]);
 
   return (

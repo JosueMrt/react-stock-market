@@ -2,3 +2,7 @@
   min-height: 35vh;
   width: 100%;
 }
+
+.chartWrapper {
+  width: 98%;
+}

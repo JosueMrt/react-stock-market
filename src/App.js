@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Chart, Info, News, SearchBar } from "./components";
+import { Chart, Info, News, SearchBar, Price } from "./components";
 import styles from "./App.module.css";
 
 const App = () => {
@@ -10,8 +10,9 @@ const App = () => {
   return (
     <div className={styles.container}>
       <SearchBar handleSearch={handleSearch} />
-      <Info ticker={ticker}/>
+      <Info ticker={ticker} />
       <Chart ticker={ticker} />
+      <Price ticker={ticker} />
       <News />
     </div>
   );

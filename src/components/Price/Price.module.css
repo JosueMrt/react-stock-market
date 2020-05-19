@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.price {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.dollarSymbol {
+    font-size: 18px;
+}
