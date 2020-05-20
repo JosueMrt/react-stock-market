@@ -1,5 +1,5 @@
 const express = require("express");
-const path = require('path');
+const path = require('path')
 const fetch = require("node-fetch");
 require("dotenv").config();
 
@@ -48,7 +48,7 @@ app.get("/api/price/:ticker", async (req, res) => {
 app.get("/api/news/:ticker", async (req, res) => {
   const { ticker } = req.params;
   const response = await fetch(
-    `https://cloud.iexapis.com/stable/stock/${ticker}/news/last/3?token=pk_bc14b78153d24d7d878689bf51c9360d`
+    `https://cloud.iexapis.com/stable/stock/${ticker}/news/last/3?token=${api_key}`
   );
   const data = await response.json();
   res.json(data);
