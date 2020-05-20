@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    padding-top: .75rem;
+    padding: .75rem 0;
     background-color: #07122B;
 }
 
