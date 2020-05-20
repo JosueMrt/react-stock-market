@@ -18,7 +18,8 @@ const Chart = ({ ticker }) => {
 
   const data = (canvas) => {
     const ctx = canvas.getContext("2d");
-    const gradient = ctx.createLinearGradient(0, 0, 0, 180);
+    const height = document.getElementById("chart-wrapper").offsetHeight;
+    const gradient = ctx.createLinearGradient(0, 0, 0, height);
     gradient.addColorStop(0, "#41E2BA");
     gradient.addColorStop(1, "rgba(65,225,186,0)");
     return {
@@ -44,7 +45,7 @@ const Chart = ({ ticker }) => {
   return (
     <div className={styles.container}>
       <TimePicker setTimePeriod={setTimePeriod} />
-      <div className={styles.chartWrapper}>
+      <div id="chart-wrapper" className={styles.chartWrapper}>
         <Line data={data} options={options} />
       </div>
     </div>

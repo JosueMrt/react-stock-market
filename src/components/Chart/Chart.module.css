@@ -6,3 +6,11 @@
 .chartWrapper {
   width: 98%;
 }
+
+@media(min-width: 768px) {
+  .chartWrapper {
+    height: 25%;
+    width: 50%;
+    margin: auto;
+  }
+}

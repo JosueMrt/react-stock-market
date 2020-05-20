@@ -26,7 +26,7 @@ const Info = ({ ticker }) => {
         </div>
         <img
           className={styles.logo}
-          src={"https://storage.googleapis.com/iex/api/logos/AAPL.png"}
+          src={logoUrl}
           alt={`Logo of ${companyInfo.companyName}`}
         />
       </div>

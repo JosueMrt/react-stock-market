@@ -7,7 +7,7 @@
 }
 
 .textContainer {
-  margin: auto .5rem;
+  margin: auto 0.5rem;
 }
 
 .container img {
@@ -30,4 +30,15 @@
 
 .container a {
   text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    height: 100px;
+    width: 75%;
+    background-color: #07122b;
+    margin: 1rem auto;
+    border-radius: 5%;
+  }
 }
