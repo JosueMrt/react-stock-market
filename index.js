@@ -7,12 +7,11 @@ const app = express();
 app.use(express.static(path.join(__dirname, "client/build")));
 
 const api_key = process.env.API_KEY;
-const sb_api_key = process.env.SB_API_KEY;
 
 app.get("/api/dailydata/:ticker/:time", async (req, res) => {
   const { ticker, time } = req.params;
   const fetch_response = await fetch(
-    `https://sandbox.iexapis.com/stable/stock/${ticker}/chart/${time}?token=${sb_api_key}`
+    `https://cloud.iexapis.com/stable/stock/${ticker}/chart/${time}?token=${api_key}`
   );
   const data = await fetch_response.json();
   res.json(data);
@@ -21,7 +20,7 @@ app.get("/api/dailydata/:ticker/:time", async (req, res) => {
 app.get("/api/info/:ticker", async (req, res) => {
   const { ticker } = req.params;
   const response = await fetch(
-    `https://sandbox.iexapis.com/stable/stock/${ticker}/company?token=${sb_api_key}`
+    `https://cloud.iexapis.com/stable/stock/${ticker}/company?token=${api_key}`
   );
   const data = await response.json();
   res.json(data);
@@ -39,7 +38,7 @@ app.get("/api/logo/:ticker", async (req, res) => {
 app.get("/api/price/:ticker", async (req, res) => {
   const { ticker } = req.params;
   const response = await fetch(
-    `https://sandbox.iexapis.com/stable/stock/${ticker}/price?token=${sb_api_key}`
+    `https://cloud.iexapis.com/stable/stock/${ticker}/price?token=${api_key}`
   );
   const data = await response.json();
   res.json(data);
