@@ -1,8 +1,10 @@
 const express = require("express");
+const path = require('path');
 const fetch = require("node-fetch");
 require("dotenv").config();
 
 const app = express();
+app.use(express.static(path.join(__dirname, "client/build")));
 
 const api_key = process.env.API_KEY;
 const sb_api_key = process.env.SB_API_KEY;
