@@ -1,0 +1,16 @@
+.container {
+  width: 100%;
+  background-color: #07122B;
+}
+
+.chartWrapper {
+  width: 98%;
+}
+
+@media(min-width: 768px) {
+  .chartWrapper {
+    height: 25%;
+    width: 50%;
+    margin: auto;
+  }
+}

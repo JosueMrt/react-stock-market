@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  height: 100px;
+  background-color: #07122b;
+  margin: 0 0.5rem 0.75rem 0.5rem;
+  border-radius: 5%;
+}
+
+.textContainer {
+  margin: auto 0.5rem;
+}
+
+.container img {
+  object-fit: cover;
+  max-width: 30%;
+  height: auto;
+  border-radius: 5% 0 0 5%;
+}
+
+.container h1 {
+  font-size: 15px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.container p {
+  font-size: 10px;
+  color: #9a99b5;
+}
+
+.container a {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    height: 100px;
+    width: 75%;
+    background-color: #07122b;
+    margin: 1rem auto;
+    border-radius: 5%;
+  }
+}

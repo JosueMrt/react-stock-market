@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 0px 0 15px 0;
+}
+.container button {
+  background-color: #020a22;
+  text-decoration: none;
+  border: none;
+  flex: 1;
+  font-size: 14px;
+  color: #9A99B5;
+  transition: all 0.5s ease-out;
+}
+
+.active {
+  border-bottom: #fff 2px solid !important;
+  font-weight: bold;
+  color: #fff !important;
+  transition: all 0.5s ease-in;
+}

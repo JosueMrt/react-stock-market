@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    padding: .75rem 0;
+    background-color: #07122B;
+}
+
+.price {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.dollarSymbol {
+    font-size: 18px;
+}
