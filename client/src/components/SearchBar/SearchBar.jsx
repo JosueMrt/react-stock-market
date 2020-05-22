@@ -7,7 +7,7 @@ const SearchBar = ({ handleSearch }) => {
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
-    const regex = new RegExp(`^${inputValue}`, "i");
+    const regex = new RegExp(`^${inputValue.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')}`, "i");
     setStocks(
       TickerSymbols.filter((val) => regex.test(val.symbol)).slice(0, 11)
     );
